@@ -6,11 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3079a08e-3f06-43f5-b033-551d3e9748e3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/CaesarCipher/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/CaesarCipher/main.go" afterDir="false" />
+>>>>>>> dc99d7f77afd00464cc2c6c3b83209caaf844043
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../Go_Cryptographic_algorithm\exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,8 +61,22 @@
     "last_opened_file_path": "E:/workSpace/goProject/src/Go_Cryptographic_algorithm",
     "settings.editor.selected.configurable": "watcher.settings"
   }
+<<<<<<< HEAD
 }]]></component>
   <component name="RunManager">
+=======
+}</component>
+  <component name="RunManager" selected="Go Build.go build main.go (1)">
+    <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Go_Cryptographic_algorithm" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <package value="Go_Cryptographic_algorithm" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/multiplicationCipher/main.go" />
+      <method v="2" />
+    </configuration>
+>>>>>>> dc99d7f77afd00464cc2c6c3b83209caaf844043
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="Go_Cryptographic_algorithm" />
       <working_directory value="$PROJECT_DIR$" />
@@ -67,6 +88,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go (1)" />
         <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
