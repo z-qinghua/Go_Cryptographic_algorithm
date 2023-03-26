@@ -6,7 +6,7 @@
 package main
 
 import (
-    "fmt"
+	"fmt"
 )
 
 /*
@@ -18,28 +18,28 @@ import (
 //凯撒密码加密
 
 func caesarEn(strRaw string, step int32) string {
-    //对位移长度进行判断
-    //位移也就是密钥有效为25位
-    stepMove := step % 26
-    if stepMove <= 0 {
-        return strRaw
-    }
-    //将字符串转化为明文字符切片
-    srcSlice := []rune(strRaw) //[]rune底层是[]int32
+	//对位移长度进行判断
+	//位移也就是密钥有效为25位
+	stepMove := step % 26
+	if stepMove <= 0 {
+		return strRaw
+	}
+	//将字符串转化为明文字符切片
+	srcSlice := []rune(strRaw) //[]rune底层是[]int32
 
-    //定义一个密文切片
-    dstSlice := srcSlice
+	//定义一个密文切片
+	dstSlice := srcSlice
 
-    //对字符循环进行位移转化
-    for i := 0; i < len(srcSlice); i++ {
-        if srcSlice[i] >= 'a' && srcSlice[i] <= 'z' {
-            dstSlice[i] = (srcSlice[i]+stepMove-97)%26 + 97
-        }
-        if srcSlice[i] >= 'A' && srcSlice[i] <= 'Z' {
-            dstSlice[i] = (srcSlice[i]+stepMove-65)%26 + 65
-        }
-    }
-    return string(dstSlice)
+	//对字符循环进行位移转化
+	for i := 0; i < len(srcSlice); i++ {
+		if srcSlice[i] >= 'a' && srcSlice[i] <= 'z' {
+			dstSlice[i] = (srcSlice[i]+stepMove-97)%26 + 97
+		}
+		if srcSlice[i] >= 'A' && srcSlice[i] <= 'Z' {
+			dstSlice[i] = (srcSlice[i]+stepMove-65)%26 + 65
+		}
+	}
+	return string(dstSlice)
 }
 
 /*
@@ -51,59 +51,59 @@ func caesarEn(strRaw string, step int32) string {
 //凯撒密码解密
 
 func caesarDe(strCipher string, step int32) string {
-    stepMove := step % 26
-    if stepMove <= 0 {
-        return strCipher
-    }
-    //将字符串转化为密文字符切片
-    srcSlice := []rune(strCipher) //[]rune底层是[]int32
+	stepMove := step % 26
+	if stepMove <= 0 {
+		return strCipher
+	}
+	//将字符串转化为密文字符切片
+	srcSlice := []rune(strCipher) //[]rune底层是[]int32
 
-    //定义一个明文切片
-    dstSlice := srcSlice
+	//定义一个明文切片
+	dstSlice := srcSlice
 
-    //对字符循环进行位移转化
-    for i := 0; i < len(srcSlice); i++ {
-        if srcSlice[i] >= 'a' && srcSlice[i] <= 'z' {
-            if srcSlice[i] >= 97+stepMove {
-                dstSlice[i] = srcSlice[i] - stepMove
-            } else {
-                dstSlice[i] = srcSlice[i] + 26 - stepMove
-            }
-        }
-        if srcSlice[i] >= 'A' && srcSlice[i] <= 'Z' {
-            if srcSlice[i] >= 65+stepMove {
-                dstSlice[i] = srcSlice[i] - stepMove
-            } else {
-                dstSlice[i] = srcSlice[i] + 26 - stepMove
-            }
-        }
-        //	if srcSlice[i] >= 'a' && srcSlice[i] <= 'z' {
-        //		flag := srcSlice[i] - 97 - stepMove
-        //		if flag < 0 {
-        //			dstSlice[i] = srcSlice[i] - stepMove + 26
-        //		} else {
-        //			dstSlice[i] = srcSlice[i] - stepMove
-        //		}
-        //	}
-        //	if srcSlice[i] >= 'A' && srcSlice[i] <= 'Z' {
-        //		flag := srcSlice[i] - 65 - stepMove
-        //		if flag < 0 {
-        //			dstSlice[i] = srcSlice[i] - stepMove + 26
-        //		} else {
-        //			dstSlice[i] = srcSlice[i] - stepMove
-        //		}
-        //	}
-    }
-    return string(dstSlice)
+	//对字符循环进行位移转化
+	for i := 0; i < len(srcSlice); i++ {
+		if srcSlice[i] >= 'a' && srcSlice[i] <= 'z' {
+			if srcSlice[i] >= 97+stepMove {
+				dstSlice[i] = srcSlice[i] - stepMove
+			} else {
+				dstSlice[i] = srcSlice[i] + 26 - stepMove
+			}
+		}
+		if srcSlice[i] >= 'A' && srcSlice[i] <= 'Z' {
+			if srcSlice[i] >= 65+stepMove {
+				dstSlice[i] = srcSlice[i] - stepMove
+			} else {
+				dstSlice[i] = srcSlice[i] + 26 - stepMove
+			}
+		}
+		//	if srcSlice[i] >= 'a' && srcSlice[i] <= 'z' {
+		//		flag := srcSlice[i] - 97 - stepMove
+		//		if flag < 0 {
+		//			dstSlice[i] = srcSlice[i] - stepMove + 26
+		//		} else {
+		//			dstSlice[i] = srcSlice[i] - stepMove
+		//		}
+		//	}
+		//	if srcSlice[i] >= 'A' && srcSlice[i] <= 'Z' {
+		//		flag := srcSlice[i] - 65 - stepMove
+		//		if flag < 0 {
+		//			dstSlice[i] = srcSlice[i] - stepMove + 26
+		//		} else {
+		//			dstSlice[i] = srcSlice[i] - stepMove
+		//		}
+		//	}
+	}
+	return string(dstSlice)
 }
 
 func main() {
-    plainText := ""
-    fmt.Scanln(&plainText)
-    //fmt.Println(plainText)
-    cipherText := caesarEn(plainText, 3)
-    fmt.Println("cipherText:", cipherText)
+	plainText := ""
+	fmt.Scanln(&plainText)
+	//fmt.Println(plainText)
+	cipherText := caesarEn(plainText, 3)
+	fmt.Println("cipherText:", cipherText)
 
-    plainText = caesarDe(cipherText, 3)
-    fmt.Println("caesar plainTex:", plainText)
+	plainText = caesarDe(cipherText, 3)
+	fmt.Println("caesar plainTex:", plainText)
 }
